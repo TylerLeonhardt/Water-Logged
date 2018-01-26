@@ -8,6 +8,24 @@ Use the quick-log buttons to log a glass, water bottle, or two water bottles wor
 
 All the data is synced to fitbit so you can easily access it on all your devices.
 
+## Screenshots
+
+#### Default view
+
+![Default view](https://user-images.githubusercontent.com/2644648/35448636-afb11196-026f-11e8-8600-2dbd17ae1969.png)
+
+#### Adding manually
+
+![Adding manually](https://user-images.githubusercontent.com/2644648/35448646-b53be0d2-026f-11e8-8e34-a8cb7dfe89ff.png)
+
+#### Background grows with progress
+
+![Background grows with progress](https://user-images.githubusercontent.com/2644648/35448640-b2572250-026f-11e8-883b-a133c09605f4.png)
+
+#### Goal complete!
+
+![Goal complete!](https://user-images.githubusercontent.com/2644648/35448642-b3b35e48-026f-11e8-8dc7-0f2e6477d2a6.png)
+
 ## Building from source
 
 To build from source you must upload all the files to [Fitbit Studio](https://studio.fitbit.com).
