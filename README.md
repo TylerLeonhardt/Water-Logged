@@ -1,5 +1,7 @@
 # Water Logged
 
+#### Winner of [Fitbit's #Made4Fitbit App Challenge](https://dev.fitbit.com/app-champ-2017/) - [1st Place in the Health and Wellness category](https://dev.fitbit.com/blog/2018-01-24-app-challenge-winners/)! 🥇🏆
+
 Logging water has never been this easy - Log water to your fitbit account at your wrist on your Fitbit Ionic!
 
 Water Logged allows you to log your water consumption throughout the day. It also shows you your daily water goal along with how much you've had to drink so you can meet your goal and stay healthy.
