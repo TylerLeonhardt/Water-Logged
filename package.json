@@ -1,0 +1,17 @@
+{
+  "fitbit": {
+    "appUUID": "a845c4b2-e667-4b8e-ab7a-82375eafd0b3",
+    "appType": "app",
+    "appDisplayName": "Water Logged",
+    "iconFile": "resources/icon.png",
+    "wipeColor": "#607d8b",
+    "requestedPermissions": [
+      "access_internet"
+    ],
+    "i18n": {
+      "en": {
+        "name": "Water Logged"
+      }
+    }
+  }
+}
