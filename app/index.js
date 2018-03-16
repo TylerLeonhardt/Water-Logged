@@ -2,15 +2,16 @@
 import document from "document";
 import * as fs from "fs";
 import * as messaging from "messaging";
-import { units } from "user-settings";
 import * as util from "./util.js";
+import { me as device } from "device";
+if (!device.screen) device.screen = { width: 348, height: 250 };
 
 // commonly used elements
 let waterValue = document.getElementById("waterValue");
 let rect = document.getElementById("levelRect");
 let startup = document.getElementById("startup");
 let newWater = document.getElementById("newWater");
-let units = document.getElementById("units");
+let unitsText = document.getElementById("units");
 let refreshingText = document.getElementById("refreshing");
 let levelAnimation = document.getElementById("levelAnimate");
 let gradientRect = document.getElementById("gradient");
@@ -32,7 +33,8 @@ minusOne.style.display = "none";
 let newWaterCount = 0;
 
 // Assign units
-units.text = units.volume === "metric" ? "ml" : "fl oz";
+let units = "fl oz";
+unitsText.text = units;
 
 // grab goal and summary from cached file
 let goal, summary, fileValue;
@@ -43,7 +45,12 @@ try {
 }
 if(fileValue) {
   waterValue.text = fileValue;
-  [summary, goal] = waterValue.text.split("/");
+  let tempUnits;
+  [summary, goal, tempUnits] = waterValue.text.split("/");
+  if (tempUnits) {
+    units = tempUnits;
+    unitsText.text = units;
+  }
   updateWaterLevel();
   startup.style.display = "none";
 } else {
@@ -53,8 +60,12 @@ if(fileValue) {
 // Message is received from companion
 messaging.peerSocket.onmessage = evt => {
   let from = Math.round((1 - (summary/goal))*250);
-  goal = util.convertToUnit(parseInt(evt.data.goal), units.volume);
-  summary = util.convertToUnit(parseInt(evt.data.summary), units.volume);
+  if (evt.data.units) {
+    units = evt.data.units;
+    unitsText.text = units;
+  }
+  goal = util.convertToUnit(parseInt(evt.data.goal), units);
+  summary = util.convertToUnit(parseInt(evt.data.summary), units);
   
   waterValue.text = `${summary}/${goal}`;
   fs.writeFileSync("waterValue.txt", waterValue.text, "ascii");
@@ -74,7 +85,7 @@ rect.onclick = function(e) {
 }
 
 plusOne.onactivate = function(evt) {
-  newWaterCount++;
+  newWaterCount += (units === "fl oz" ? 1 : 100);
   newWater.text = `+${newWaterCount}`
   save.style.display = "inline";
   plusGlass.style.display = "none";
@@ -84,7 +95,7 @@ plusOne.onactivate = function(evt) {
 }
 
 minusOne.onactivate = function(evt) {
-  newWaterCount--;
+  newWaterCount -= (units === "fl oz" ? 1 : 100);
   if (newWaterCount > 0) {
     newWater.text = `+${newWaterCount}` 
   } else {
@@ -102,21 +113,21 @@ save.onactivate = function(evt) {
 
 plusGlass.onactivate = function(evt) {
   let saveData = {
-    newWater: 8
+    newWater: units === "fl oz"? 8 : 250
   }
   doRequest(saveData);
 }
 
 plusSmallBottle.onactivate = function(evt) {
   let saveData = {
-    newWater: 16
+    newWater: units === "fl oz"? 16 : 500
   }
   doRequest(saveData);
 }
 
 plusBigBottle.onactivate = function(evt) {
   let saveData = {
-    newWater: 32
+    newWater: units === "fl oz"? 32 : 750
   }
   doRequest(saveData);
 }
@@ -161,7 +172,7 @@ function setRefreshText(str) {
 
 
 function updateWaterLevel() {
-  let rectHeight = Math.round((1 - (summary/goal))*250);
+  let rectHeight = Math.round((1 - (summary/goal))*device.screen.height);
   rect.height = rectHeight < 0 ? 0 : rectHeight;
   
   if(summary/goal >= 1) {

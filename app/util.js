@@ -4,7 +4,7 @@ export function updateWaterLevel() {
 }
 
 export function convertToUnit(value, units) {
-  if (units === "metric") {
+  if (units === "ml") {
     return value
   } else {
     // convert to fl oz
