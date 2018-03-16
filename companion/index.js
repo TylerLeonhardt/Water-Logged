@@ -4,6 +4,8 @@ import { settingsStorage } from "settings";
 
 let TOKEN, REFRESH;
 
+let UNITS = "fl oz";
+
 // Fetch Sleep Data from Fitbit Web API
 function fetchWaterData() {
   
@@ -42,7 +44,8 @@ function fetchWaterData() {
     // Send data to watch app
     let message = {
       goal: data[0].goal.goal,
-      summary: data[1].summary.water
+      summary: data[1].summary.water,
+      units: UNITS
     }
     if (messaging.peerSocket.readyState === messaging.peerSocket.OPEN) {
       messaging.peerSocket.send(message);
@@ -64,16 +67,28 @@ settingsStorage.onchange = evt => {
     TOKEN = data.access_token;
     REFRESH = data.refresh_token;
     fetchWaterData();
+  } else if (evt.key === "units") {
+    let data = JSON.parse(evt.newValue);
+    UNITS = data.values[0].name
+    fetchWaterData();
+    console.log(`[UNITS]: ${data.values[0].name}`);
   }
 };
 
 // Restore previously saved settings and send to the device
 function restoreSettings() {
-  let tokenData;
+  let tokenData, unitsData;
   try {
     tokenData = JSON.parse(settingsStorage.getItem("oauth"));
+    unitsData = JSON.parse(settingsStorage.getItem("units")).values[0].name;
   } catch (e) {
-    console.log("OAuth data not found.");
+    console.log("OAuth/units data not found.");
+  }
+  
+  if (unitsData) {
+    UNITS = unitsData;
+  } else {
+    console.log("No units data found. Defaulting to fl oz.");
   }
   
   if (tokenData) {
@@ -101,18 +116,13 @@ messaging.peerSocket.onmessage = evt => {
   
   // Submit new water log
   let todayDate = getTodayDate();
-  let waterData = {
-    amount: parseInt(evt.data.newWater),
-    date: todayDate,
-    unit: "fl oz"
-  }
   
   refreshTokens()
   .then(() => { 
-    return fetch(`https://api.fitbit.com/1/user/-/foods/log/water.json?amount=${evt.data.newWater}&date=${todayDate}&unit=fl oz`, {
+    return fetch(`https://api.fitbit.com/1/user/-/foods/log/water.json?amount=${evt.data.newWater}&date=${todayDate}&unit=${UNITS}`, {
       method: "POST",
       headers: {
-        'Accept-Language': "fl oz",
+        'Accept-Language': UNITS,
         "Accept": "application/json",
         "Authorization": `Bearer ${TOKEN}`
       }
@@ -145,6 +155,7 @@ function refreshTokens() {
     return res.json();
   }).then(function(data) {
     settingsStorage.setItem("oauth", JSON.stringify(data));
+    return Promise.resolve(true);
   })
 }
 
