@@ -6,9 +6,13 @@ Logging water has never been this easy - Log water to your fitbit account at you
 
 Water Logged allows you to log your water consumption throughout the day. It also shows you your daily water goal along with how much you've had to drink so you can meet your goal and stay healthy.
 
-Use the quick-log buttons to log a glass, water bottle, or two water bottles worth of water in one click - or specify an exact water value if you're counting carefully.
+Use the quick-log buttons to log a glass, water bottle, or two water bottles worth of water in one click - or specify an exact water value if you're counting carefully. You can specify your units in the settings page.
 
 All the data is synced to fitbit so you can easily access it on all your devices.
+
+Supported devices:
+* Fitbit Ionic
+* Fitbit Versa
 
 ## Screenshots
 
