@@ -46,7 +46,6 @@ Sometimes, a manual sync of your fitbit's step data can do the trick. To do this
 * If your app doesn't start syncing immediately, you can pull the screen down to refresh or tap the watch icon and sync the watch this way:
 
 <img src="https://user-images.githubusercontent.com/2644648/41394772-1a8c0022-6f60-11e8-84e7-a189707cfc1c.jpeg" alt="waterlogged" width="200px"/>
-
 <img src="https://user-images.githubusercontent.com/2644648/41394774-1ac0b2cc-6f60-11e8-96a0-c9f21d6adbe1.jpeg" alt="waterlogged" width="200px"/>
 
 * Once you're synced, try using Water Logged again from the watch
