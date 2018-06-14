@@ -45,9 +45,9 @@ Sometimes, a manual sync of your fitbit's step data can do the trick. To do this
 * Open the Fitbit app on your phone
 * If your app doesn't start syncing immediately, you can pull the screen down to refresh or tap the watch icon and sync the watch this way:
 
-![manual-sync](https://user-images.githubusercontent.com/2644648/41394772-1a8c0022-6f60-11e8-84e7-a189707cfc1c.jpeg)
+<img src="https://user-images.githubusercontent.com/2644648/41394772-1a8c0022-6f60-11e8-84e7-a189707cfc1c.jpeg" alt="waterlogged" width="200px"/>
 
-![waterlogged2](https://user-images.githubusercontent.com/2644648/41394774-1ac0b2cc-6f60-11e8-96a0-c9f21d6adbe1.jpeg)
+<img src="https://user-images.githubusercontent.com/2644648/41394774-1ac0b2cc-6f60-11e8-96a0-c9f21d6adbe1.jpeg" alt="waterlogged" width="200px"/>
 
 * Once you're synced, try using Water Logged again from the watch
 
@@ -56,19 +56,19 @@ Sometimes, a manual sync of your fitbit's step data can do the trick. To do this
 * Open the Fitbit app on your phone
 * Go to your watch page:
 
-![goto-watch-page](https://user-images.githubusercontent.com/2644648/41394772-1a8c0022-6f60-11e8-84e7-a189707cfc1c.jpeg)
+<img src="https://user-images.githubusercontent.com/2644648/41394772-1a8c0022-6f60-11e8-84e7-a189707cfc1c.jpeg" alt="waterlogged" width="200px"/>
 
 * Tap on Apps:
 
-![waterlogged3](https://user-images.githubusercontent.com/2644648/41394775-1ad5aaba-6f60-11e8-89a5-4c53615caf58.jpeg)
+<img src="https://user-images.githubusercontent.com/2644648/41394775-1ad5aaba-6f60-11e8-89a5-4c53615caf58.jpeg" alt="waterlogged" width="200px"/>
 
 * Find Water Logged on the list and tap the gear icon:
 
-![waterlogged4](https://user-images.githubusercontent.com/2644648/41394777-1ae7c3bc-6f60-11e8-9ffa-a30625016a06.jpeg)
+<img src="https://user-images.githubusercontent.com/2644648/41394777-1ae7c3bc-6f60-11e8-9ffa-a30625016a06.jpeg" alt="waterlogged" width="200px"/>
 
 * Click on the Fitbit login button:
 
-![waterlogged5](https://user-images.githubusercontent.com/2644648/41394778-1afb290c-6f60-11e8-8b78-6839efcb957b.jpeg)
+<img src="https://user-images.githubusercontent.com/2644648/41394778-1afb290c-6f60-11e8-8b78-6839efcb957b.jpeg" alt="waterlogged" width="200px"/>
 
 * Then try and see if Water Logged works
 
@@ -88,9 +88,9 @@ I had a report recently that an old version of iOS was causing issues with Fitbi
 
 Do you see this?
 
-![waterlogged6](https://user-images.githubusercontent.com/2644648/41395391-6462f6a4-6f62-11e8-8c1c-27620665770d.jpeg)
+<img src="https://user-images.githubusercontent.com/2644648/41395391-6462f6a4-6f62-11e8-8c1c-27620665770d.jpeg" alt="waterlogged" width="200px"/>
 
-Have no fear! If your data shows up in Water Logged, your data is safe. This is an issue with the Fitbit app, itself.
+Have no fear! If your data shows up in Water Logged on your watch, your data is safe. This is an issue with the Fitbit app, itself.
 
 To fix this, simply kill the app and reopen it. If that doesn't work, restart your phone and that should fix the problem.
 
