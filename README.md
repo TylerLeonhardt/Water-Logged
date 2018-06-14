@@ -28,6 +28,76 @@ All the data is synced to Fitbit so you can easily access it on all your devices
 
 ![Goal complete!](https://user-images.githubusercontent.com/2644648/35448642-b3b35e48-026f-11e8-8dc7-0f2e6477d2a6.png)
 
+## Troubleshooting
+
+If you're experiencing trouble using Water Logged, here are some common issues and how to fix them.
+
+> NOTE: Screenshots are taken from an Android device. iOS might be slightly different.
+
+### _I'm getting "Failed! Please restart app" on the watch!_
+
+Unfortunately, when this happens, you're most likely experiencing a problem with Fitbit itself, and not Water Logged. Here are some steps that might fix the problem:
+
+#### Manually sync your fitbit
+
+Sometimes, a manual sync of your fitbit's step data can do the trick. To do this:
+
+* Open the Fitbit app on your phone
+* If your app doesn't start syncing immediately, you can pull the screen down to refresh or tap the watch icon and sync the watch this way:
+
+![manual-sync](https://user-images.githubusercontent.com/2644648/41394772-1a8c0022-6f60-11e8-84e7-a189707cfc1c.jpeg)
+
+![waterlogged2](https://user-images.githubusercontent.com/2644648/41394774-1ac0b2cc-6f60-11e8-96a0-c9f21d6adbe1.jpeg)
+
+* Once you're synced, try using Water Logged again from the watch
+
+#### Re-login to Fitbit in the Water Logged settings
+
+* Open the Fitbit app on your phone
+* Go to your watch page:
+
+![goto-watch-page](https://user-images.githubusercontent.com/2644648/41394772-1a8c0022-6f60-11e8-84e7-a189707cfc1c.jpeg)
+
+* Tap on Apps:
+
+![waterlogged3](https://user-images.githubusercontent.com/2644648/41394775-1ad5aaba-6f60-11e8-89a5-4c53615caf58.jpeg)
+
+* Find Water Logged on the list and tap the gear icon:
+
+![waterlogged4](https://user-images.githubusercontent.com/2644648/41394777-1ae7c3bc-6f60-11e8-9ffa-a30625016a06.jpeg)
+
+* Click on the Fitbit login button:
+
+![waterlogged5](https://user-images.githubusercontent.com/2644648/41394778-1afb290c-6f60-11e8-8b78-6839efcb957b.jpeg)
+
+* Then try and see if Water Logged works
+
+#### Update your device
+
+If those steps don't work, make sure the following items are up-to-date:
+
+* The Fitbit app on the phone
+* Your watch's operating system (the Fitbit app will tell you if you do!)
+* Your phone's operating system (Android or iOS)
+
+I had a report recently that an old version of iOS was causing issues with Fitbit watches so this step could be very important!
+
+> If none of these fixed the problem, bug me on Twitter: [@TylerLeonhardt](https://twitter.com/TylerLeonhardt).
+
+### _My data isn't showing up in the Fitbit Dashboard!_
+
+Do you see this?
+
+![waterlogged6](https://user-images.githubusercontent.com/2644648/41395391-6462f6a4-6f62-11e8-8c1c-27620665770d.jpeg)
+
+Have no fear! If your data shows up in Water Logged, your data is safe. This is an issue with the Fitbit app, itself.
+
+To fix this, simply kill the app and reopen it. If that doesn't work, restart your phone and that should fix the problem.
+
+### I don't see my problem here!
+
+Bug me about it on Twitter: [@TylerLeonhardt](https://twitter.com/TylerLeonhardt).
+
 ## Building from source
 
 To build from source you must upload all the files to [Fitbit Studio](https://studio.fitbit.com).
