@@ -93,7 +93,7 @@ Have no fear! If your data shows up in Water Logged on your watch, your data is 
 
 To fix this, simply kill the app and reopen it. If that doesn't work, restart your phone and that should fix the problem.
 
-### I don't see my problem here!
+### _I don't see my problem here!_
 
 Bug me about it on Twitter: [@TylerLeonhardt](https://twitter.com/TylerLeonhardt).
 
