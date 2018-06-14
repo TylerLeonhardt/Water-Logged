@@ -93,6 +93,29 @@ Have no fear! If your data shows up in Water Logged on your watch, your data is 
 
 To fix this, simply kill the app and reopen it. If that doesn't work, restart your phone and that should fix the problem.
 
+### I accidentally logged some water! How do I delete the log
+
+You can delete any accidental logs from inside the Fitbit app on your phone:
+
+* Open the Fitbit app and tap on the water section on the dashboard:
+
+<img src="https://user-images.githubusercontent.com/2644648/41395391-6462f6a4-6f62-11e8-8c1c-27620665770d.jpeg" alt="waterlogged" width="200px"/>
+
+* From here, tap on today's summary:
+
+<img src="https://user-images.githubusercontent.com/2644648/41420362-16b6f79c-6fa9-11e8-875f-9098d61fb479.jpeg" alt="waterlogged" width="200px"/>
+
+* From here, tap on the log you want to delete:
+
+<img src="https://user-images.githubusercontent.com/2644648/41420364-16e88c58-6fa9-11e8-9133-2cbeed3c9d6a.jpeg" alt="waterlogged" width="200px"/>
+
+* From here, tap on the trash can on the top right and confirm:
+
+<img src="https://user-images.githubusercontent.com/2644648/41420365-171369a0-6fa9-11e8-9619-32749cc32898.jpeg" alt="waterlogged" width="200px"/>
+<img src="https://user-images.githubusercontent.com/2644648/41420366-172d1012-6fa9-11e8-91bb-b3e22da03126.jpeg" alt="waterlogged" width="200px"/>
+
+The log should now be deleted!
+
 ### _I don't see my problem here!_
 
 Bug me about it on Twitter: [@TylerLeonhardt](https://twitter.com/TylerLeonhardt).
