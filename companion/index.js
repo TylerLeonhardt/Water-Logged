@@ -3,8 +3,12 @@ import secrets from "../secrets.json";
 import { settingsStorage } from "settings";
 
 let TOKEN, REFRESH;
-
 let UNITS = "fl oz";
+let PRESETS = {
+  "glass":8,
+  "oneBottle":16,
+  "twoBottles":32
+}
 
 // Fetch Sleep Data from Fitbit Web API
 function fetchWaterData() {
@@ -61,26 +65,38 @@ function fetchWaterData() {
 
 // A user changes Settings
 settingsStorage.onchange = evt => {
-  if (evt.key === "oauth") {
-    // Settings page sent us an oAuth token or we refreshed the token
-    let data = JSON.parse(evt.newValue);
-    TOKEN = data.access_token;
-    REFRESH = data.refresh_token;
-    fetchWaterData();
-  } else if (evt.key === "units") {
-    let data = JSON.parse(evt.newValue);
-    UNITS = data.values[0].name
-    fetchWaterData();
-    console.log(`[UNITS]: ${data.values[0].name}`);
+  let data = JSON.parse(evt.newValue);
+  switch (evt.key) {
+    case "oauth":
+      TOKEN = data.access_token;
+      REFRESH = data.refresh_token;
+      fetchWaterData();
+      break;
+    case "units":
+      UNITS = data.values[0].name
+      console.log(`[UNITS]: ${data.values[0].name}`);
+      fetchWaterData();
+      break;
+    case "glass":
+    case "oneBottle":
+    case "twoBottles":
+      PRESETS[evt.key] = parseInt(data.name)
+      console.log(`[${evt.key}]: ${JSON.stringify(data)}`);
+      break;
   }
 };
 
 // Restore previously saved settings and send to the device
 function restoreSettings() {
-  let tokenData, unitsData;
+  let tokenData, unitsData, presetData;
   try {
     tokenData = JSON.parse(settingsStorage.getItem("oauth"));
     unitsData = JSON.parse(settingsStorage.getItem("units")).values[0].name;
+    presetData = {
+      "glass": JSON.parse(settingsStorage.getItem("glass")).name,
+      "oneBottle": JSON.parse(settingsStorage.getItem("oneBottle")).name,
+      "twoBottles":  JSON.parse(settingsStorage.getItem("twoBottles")).name
+    }
   } catch (e) {
     console.log("OAuth/units data not found.");
   }
@@ -98,6 +114,12 @@ function restoreSettings() {
   } else {
     console.log("No auth data found.");
   }
+  
+  if (presetData) {
+    PRESETS = presetData;
+  } else {
+    console.log("No units data found. Defaulting to fl oz.");
+  }
 }
 
 // Message socket opens
@@ -114,12 +136,15 @@ messaging.peerSocket.onmessage = evt => {
     return;
   }
   
+  // if we didn't get a raw value, grab the value of the preset
+  let newWater = evt.data.newWater ? evt.data.newWater : PRESETS[evt.data.newWaterType]
+  
   // Submit new water log
   let todayDate = getTodayDate();
   
   refreshTokens()
   .then(() => { 
-    return fetch(`https://api.fitbit.com/1/user/-/foods/log/water.json?amount=${evt.data.newWater}&date=${todayDate}&unit=${UNITS}`, {
+    return fetch(`https://api.fitbit.com/1/user/-/foods/log/water.json?amount=${newWater}&date=${todayDate}&unit=${UNITS}`, {
       method: "POST",
       headers: {
         'Accept-Language': UNITS,

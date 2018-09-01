@@ -113,21 +113,21 @@ save.onactivate = function(evt) {
 
 plusGlass.onactivate = function(evt) {
   let saveData = {
-    newWater: units === "fl oz"? 8 : 250
+    newWaterType: "glass"
   }
   doRequest(saveData);
 }
 
 plusSmallBottle.onactivate = function(evt) {
   let saveData = {
-    newWater: units === "fl oz"? 16 : 500
+    newWaterType: "oneBottle"
   }
   doRequest(saveData);
 }
 
 plusBigBottle.onactivate = function(evt) {
   let saveData = {
-    newWater: units === "fl oz"? 32 : 750
+    newWaterType: "twoBottles"
   }
   doRequest(saveData);
 }

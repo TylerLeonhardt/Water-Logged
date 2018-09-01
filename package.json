@@ -1,4 +1,12 @@
 {
+  "name": "water-logged",
+  "version": "2.2.0",
+  "private": true,
+  "license": "MIT",
+  "devDependencies": {
+    "@fitbit/sdk": "~1.0.2",
+    "@fitbit/sdk-cli": "^1.0.0"
+  },
   "fitbit": {
     "appUUID": "a845c4b2-e667-4b8e-ab7a-82375eafd0b3",
     "appType": "app",
@@ -17,5 +25,9 @@
         "name": "Water Logged"
       }
     }
+  },
+  "scripts": {
+    "build": "fitbit-build",
+    "debug": "fitbit"
   }
 }
