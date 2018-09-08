@@ -30,6 +30,8 @@ All the data is synced to Fitbit so you can easily access it on all your devices
 
 ## Troubleshooting
 
+**Make sure you have the latest version!**
+
 If you're experiencing trouble using Water Logged, here are some common issues and how to fix them.
 
 > NOTE: Screenshots are taken from an Android device. iOS might be slightly different.
